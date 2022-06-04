@@ -35,7 +35,7 @@ def apply_template!
   apply "circleci/template.rb"
   apply "config/template.rb"
   apply "lib/template.rb"
-  apply "test/template.rb"
+  # apply "test/template.rb"
 
   git :init unless preexisting_git_repo?
   empty_directory ".git/safe"
@@ -133,10 +133,11 @@ def assert_valid_options
     skip_bundle: false,
     skip_git: false,
     skip_system_test: false,
-    skip_test: false,
     skip_test_unit: false,
     edge: false
   }
+
+  # skip_test: false,
   valid_options.each do |key, expected|
     next unless options.key?(key)
     actual = options[key]
